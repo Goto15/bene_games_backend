@@ -1,19 +1,17 @@
 class Game < ApplicationRecord
     def structure_response
         {
+            complete: self.completed,
             title: self.title,
-            blind: self.blind,
-            criticScore: self.criticScore,
-            comlete: self.completed,
-            esrbrating: self.esrbRating,
             genres: self.genres,
-            hasVotes: self.hasVotes,
             length: self.length,
-            usrScore: self.userScore,
-            votesNeededToPass: self.votesNeededToPass,
-            description: self.description,
-            releaseDate: self.releaseDate,
+            critic_score: self.critic_score,
             genres: self.genres
+            # TODO: genres need to be pulled into Rails somehow to access multipliers
         }
+    end
+
+    def total_multiplier
+        # sum of (self.genres.total_multi + self.custom_multi
     end
 end

@@ -1,8 +1,12 @@
 class GamesController < ApplicationController
     def index
-        @pagy, games = pagy(Game.all, items: 100)
-        games = games.map{ |game| game.structure_response}
-        render json: games
+        @games = Game.all
+        render json: @games
+    end
+
+    def display_table
+        @games = Game.all.map{ |game| game.structure_response}
+        render json: @games
     end
 
     def show

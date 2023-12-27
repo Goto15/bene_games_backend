@@ -10,25 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_23_234820) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_26_013759) do
   create_table "games", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "criticScore"
+    t.integer "critic_score"
     t.string "description"
-    t.string "esrbRating"
-    t.datetime "releaseDate"
+    t.string "esrb_rating"
+    t.datetime "release_date"
     t.string "title"
-    t.integer "userScore"
+    t.integer "user_score"
     t.integer "length"
     t.boolean "completed"
     t.boolean "blind"
-    t.integer "votesNeededToPass"
-    t.integer "hasVotes"
+    t.integer "votes_to_pass"
+    t.integer "has_votes"
     t.string "genres"
-    t.datetime "completionDate"
-    t.datetime "startDate"
+    t.datetime "completion_date"
+    t.datetime "start_date"
     t.string "status"
+    t.string "review"
+    t.float "custom_multi"
   end
 
 end
