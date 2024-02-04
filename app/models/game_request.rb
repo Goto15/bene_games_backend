@@ -1,0 +1,3 @@
+class GameRequest < ApplicationRecord
+
+end

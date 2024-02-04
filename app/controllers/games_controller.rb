@@ -4,11 +4,6 @@ class GamesController < ApplicationController
         render json: @games
     end
 
-    def display_table
-        @games = Game.all.map{ |game| game.structure_response}
-        render json: @games
-    end
-
     def show
         game = Game.find(params[:id])
         render json: game
@@ -29,10 +24,14 @@ class GamesController < ApplicationController
         render json: game
     end
 
-
     def destroy
         game = Game.find(params[:id])
         game.destroy
+    end
+
+    def display_table
+        @games = Game.all.map{ |game| game.structure_response}
+        render json: @games
     end
 
     private

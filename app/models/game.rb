@@ -1,7 +1,8 @@
 class Game < ApplicationRecord
     def structure_response
         {
-            complete: self.completed,
+            id: self.id,
+            completed: self.completed,
             title: self.title,
             genres: self.genres,
             length: self.length,

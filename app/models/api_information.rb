@@ -1,0 +1,2 @@
+class ApiInformation < ApplicationRecord
+end

@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_26_013759) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_24_202608) do
+  create_table "api_informations", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "access_token"
+    t.string "refresh_token"
+    t.string "token_name"
+    t.string "token_type"
+    t.string "scope"
+    t.integer "expires_in"
+  end
+
+  create_table "game_requests", force: :cascade do |t|
+    t.string "requested_game"
+    t.string "requester"
+    t.string "reward_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "games", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -31,6 +50,28 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_26_013759) do
     t.string "status"
     t.string "review"
     t.float "custom_multi"
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "genre"
+    t.float "multiplier"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["genre"], name: "index_genres_on_genre", unique: true
+  end
+
+  create_table "rewards", force: :cascade do |t|
+    t.string "name"
+    t.string "custom_reward_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
 end
